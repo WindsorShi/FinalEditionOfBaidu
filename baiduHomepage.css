@@ -192,7 +192,7 @@
         width: 60%;
         left: 50%;
         margin-left: -28%;
-        border: 1px black solid;
+        border: 1px #e0e0e0 solid;
     }
     
     .menu-column {
@@ -202,7 +202,6 @@
         font-size: 16px;
         color: #333;
         height: 40px;
-        border: 1px black solid;
     }
     
     .myConcern {
@@ -225,13 +224,11 @@
         height: 85%;
         width: 100%;
         margin-top: 10px;
-        border: 1px black solid;
     }
     
     .detailed-item,
     .hotnews {
         display: inline-block;
-        border: 1px black solid;
         padding: 10px;
     }
     
@@ -242,6 +239,7 @@
     
     .hotnews {
         width: 35%;
+        vertical-align: top;
     }
     
     .titleblock {
@@ -263,7 +261,7 @@
         font-size: 15px;
         font-weight: bold;
         color: #333;
-        margin: 0px;
+        margin: 0px 0px 0px 10px;
     }
     
     .morenav {
@@ -310,9 +308,13 @@
     
     .hotnews .two a {
         width: 45%;
+        color: black;
+    }
+    .hotnews .detailedsite .news-list-wrapper a:hover{
+        color: #3e3ef3;
+        text-decoration: underline;
     }
     /*在实时热点栏里多一个换一批的div*/
-    
     .changelogo {
         position: absolute;
         width: 20%;
@@ -326,3 +328,84 @@
         font-weight: bold;
         color: #333;
     }
+    .notice {
+        text-align: center;
+    }
+    .notice-icon {
+        display: inline-block;
+        height: 14px;
+        width: 12px;
+        margin: 0 6px 0 6px;
+        background: url("img/news.png") no-repeat -45px 0px;
+    }
+    .notice span{
+            display: inline-block;
+    zoom: 1;
+    vertical-align: middle;
+        font-size: 13px;
+    color: rgba(0, 0, 0, .4);
+    }
+    .news-list-item .text-content {
+        font-weight: bold;
+    vertical-align: top;
+    font-size: 20px;
+    margin-top: 30px;
+    }
+    .news-list-item div {
+        display: inline-block;
+
+    }
+    .text-content a:hover {
+                color: #6464e6;
+    text-decoration: underline;
+    }
+    .news-list-item a {
+                color: black;
+    text-align: center;
+    letter-spacing: 3px;
+
+    }
+    .news-list-wrapper a: hover {
+            color: #0079f4; 
+                text-decoration: underline;
+       
+    }
+    .source-content {
+            margin-top: -15px;
+    height: 15px;
+    width: 100%;
+    }
+    .source-content span {
+         font-size: 12px;
+    color: #868282;
+
+    }
+    .pic-content {
+        margin-left: 45px;
+    }
+    .footer {
+        height: 100px;
+        bottom: 10px;
+        font-size: 10px;
+    }
+
+    .announcement {
+        float: left;
+        margin-left: 40%;
+        text-align: center;
+        line-height: 18px;
+        width: 590px;
+        color: white;
+    }
+    .announcement span {
+        display: inline-block;
+        float: left;
+        color: white;
+        margin-left: 10px;
+    }
+    .footer .announcement p a{
+        float: left;
+        margin-left: 10px;
+        text-decoration: underline;
+    }
+
