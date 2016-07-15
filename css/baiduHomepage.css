@@ -1,0 +1,251 @@
+    a {
+        text-decoration: none;
+    }
+    .wrapperskin {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-repeat: no-repeat;
+        background: rgba(128, 128, 128, 0.15);
+        -webkit-background-size: 100% auto;
+        -moz-background-size: 100% auto;
+        -o-background-size: 100% auto;
+        background-size: 100% auto;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    #header {
+        padding-bottom: 10px;
+    }
+    #weathercolumn {
+        position: relative;
+        height: 54px;
+    }
+    #weather {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 6px;
+        height: 40px;
+        line-height: 40px;
+    }
+    @font-face {
+        font-family: 'iconfont';
+        src: url('iconfont.eot');
+        /* IE9*/
+        src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('iconfont.woff') format('woff'), /* chrome、firefox */
+        url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        url('iconfont.svg#iconfont') format('svg');
+        /* iOS 4.1- */
+    }
+    /*设置字符图标用到的部分*/
+    [class^="icon-"] {
+        font-family: "iconfont" !important;
+        font-size: 20px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0.2px;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    /*每个以icon-开头的类统一设置*/
+    .weatherlogo,
+    .weathernum,
+    .weatherstatus {
+        display: inline-block;
+        margin-right: 6px;
+    }
+    /*  天气栏内部三个块元素*/
+    /*天气logo*/
+    .weatherlogo {
+        color: #b7babe;
+        position: relative;
+        top: -1px;
+        width: auto;
+        margin-left: -1px;
+    }
+    /*温度数字*/
+    .weathernum {
+        font-size: 20px;
+        color: #8c8c8c;
+        padding-left: 2px;
+    }
+    .weatherstatus p {
+        height: 13px;
+        line-height: 13px;
+        font-size: 11px;
+        color: #999;
+    }
+    /*登陆图标*/
+    .login {
+        position: absolute;
+        top: 5px;
+        right: 50px;
+        padding: 3px;
+        color: #9b9b9b;
+        line-height: 20px;
+    }
+    .skin {
+        position: absolute;
+        top: 5px;
+        right: 1px;
+        padding: 5px;
+        color: #9b9b9b;
+        line-height: 20px;
+    }
+    .icon-skin {
+        font-size: 30px;
+    }
+    /*百度图片logo*/
+    .baidulogo {
+        height: 66px;
+        padding: 18px 0 15px;
+    }
+    .baidulogo img {
+        width: 175px;
+        height: 55px;
+    }
+    /*中间搜索框*/
+    .centerform {
+        margin: 0 10px;
+        height: 42px;
+        background: #fff;
+        border: 1px solid #949494;
+        border-bottom-color: #bcbcbc;
+    }
+    .centerblock {
+        display: -webkit-box;
+        /*定义为盒模型这样容易划分子容器的空间*/
+        width: 100%;
+    }
+    .centerinput {
+        display: block;
+        padding: 7px 42px 4px 11px;
+        height: 32px;
+        line-height: 32px;
+        border: 0;
+        background: transparent;
+        -webkit-box-flex: 1;
+        /*按钮定长，那么centerblock剩下的部分分为一等份给输入框*/
+    }
+    .left-btn {
+        position: relative;
+        width: 82px;
+    }
+    .centerbutton {
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        width: 82px;
+        height: 42px;
+        background: #38f;
+        color: #fff;
+        line-height: 42px;
+        font-size: 16px;
+        border-top: 1px solid #38f;
+        border-bottom: 1px solid #38f;
+        box-sizing: inherit;
+        cursor: default;
+    }
+    .centerinput:hover {
+        border-color: #888;
+    }
+    .centerinput:focus {
+        border-color: #3385ff;
+    }
+    .centerbutton:hover {
+        background-color: #2d78f4;
+    }
+    /*搜索框结束*/
+    /*搜索框下部导航栏*/
+    #navs {
+        margin: 17px 0 14px;
+        overflow: hidden;
+    }
+    #navs a {
+        float: left;
+        width: 16%;
+        font-size: 12px;
+        color: #666;
+        cursor: auto;
+    }
+    #navs a i {
+        display: block;
+        margin-bottom: 4px;
+        height: 24px;
+    }
+    /*信息栏*/
+    #information {
+        position: relative;
+        padding: 0 8px 10px;
+    }
+    .usefulsite,
+    .hotnews {
+        background: #fff;
+        margin-top: 8px;
+    }
+    /*信息栏标题框和标题统一设置*/
+    .titleblock {
+        position: relative;
+        margin: 2px 14px 0;
+        height: 40px;
+        text-align: left;
+    }
+    .title {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+    .title h2 {
+        line-height: 40px;
+        font-size: 15px;
+        color: #999;
+    }
+    .morenav {
+        position: absolute;
+        right: -12px;
+        top: 0;
+        width: 40px;
+        height: 34px;
+        text-align: center;
+        line-height: 34px;
+    }
+    /*具体链接也统一设置*/
+    .detailedsite {
+        overflow: hidden;
+        margin-top: -5px;
+        font-size: 14px;
+    }
+    .detailedsite a {
+        float: left;
+        display: block;
+        position: relative;
+        box-sizing: border-box;
+        /*手机模式下一般都得用怪异盒模型*/
+        padding: 0 6px;
+        height: 42px;
+        line-height: 42px;
+    }
+    .usefulsite .one a {
+        width: 25%;
+    }
+    /*在常用地址栏里设为25%的宽占比*/
+    /*实时热点则是50%*/
+    .hotnews .two a {
+        width: 50%;
+    }
+    /*在实时热点栏里多一个换一批的div*/
+    .changelogo {
+        position: absolute;
+        width: 20%;
+        top: 0;
+        right: 25px;
+    }
+    .changelogo span {
+        line-height: 40px;
+        font-size: 15px;
+        color: #999;
+    }
+
