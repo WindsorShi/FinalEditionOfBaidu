@@ -1,0 +1,12 @@
+$(".username").mouseenter(function(){
+	$("#username-menu").show();
+});
+$('.username').mouseleave(function(){
+	$("#username-menu").hide();
+});
+$(".setting").mouseenter(function(){
+	$("#usersetting-menu").show();
+});
+$('.setting').mouseleave(function(){
+	$("#usersetting-menu").hide();
+});

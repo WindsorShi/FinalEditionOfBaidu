@@ -1,7 +1,8 @@
-    *{
+    * {
         margin: 0px;
         padding: 0px;
     }
+    
     a {
         text-decoration: none;
     }
@@ -25,6 +26,13 @@
         width: 100%;
         height: 100%;
         z-index: -1;
+    }
+    
+    .top-search-block {
+        border: 1px black solid;
+        width: 100%;
+        height: 100px;
+        position: fixed;
     }
     
     #header {
@@ -70,18 +78,47 @@
         color: #999;
     }
     
-    .head-inform {
-        padding-top: 20px;
-        font-size: 13px;
-        font-weight: bold;
-        overflow: hidden;
-        /*清除浮动*/
+    .head-inform .user-set {
+        background: #fff;
+        position: absolute;
+        width: 72px;
+        font-size: 12px;
+        margin-top: 25px;
+    }
+    
+    .head-inform .user-set a {
+        display: inline-block;
+        float: left;
+        padding: 6px;
+        text-align: center;
+        width: 62px;
+        font-weight: 100;
+    }
+    
+    .head-inform .user-set span {
+        display: block;
+        width: 0px;
+        border-left: 5px solid transparent;
+        border-bottom: 10px #fff solid;
+        border-right: 5px solid transparent;
+        margin-left: 35px;
+        margin-top: -10px;
+    }
+    
+    .head-inform #username-menu {
+        display: none;
+        margin-left: 418px;
+    }
+    
+    .head-inform #usersetting-menu {
+        display: none;
+        margin-left: 485px;
     }
     /*导航部分*/
     /*更多产品的属性*/
     
     .head-inform {
-        width: 480px;
+        width: 650px;
         padding-top: 20px;
         font-size: 13px;
         font-weight: bold;
@@ -105,8 +142,10 @@
         float: left;
         height: 25px;
         line-height: 25px;
-        margin-left: 10px;
+        margin-left: 30px;
         margin-right: 10px;
+        text-decoration: underline;
+        color: white;
     }
     
     a:hover {
@@ -151,7 +190,6 @@
     
     .centerbutton {
         position: absolute;
-        top: -1px;
         right: -1px;
         width: 82px;
         height: 42px;
@@ -162,7 +200,7 @@
         border-top: 1px solid #38f;
         border-bottom: 1px solid #38f;
         box-sizing: inherit;
-        cursor: default;
+        cursor: pointer;
     }
     
     .centerinput:hover {
@@ -207,6 +245,18 @@
     .myConcern {
         width: 135px;
         text-align: center;
+    }
+    
+    .menu-column .myConcern:hover {
+        background-color: #c1c2c3;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    .menu-column .menu-wrapper .menu-item:hover {
+        background-color: #c1c2c3;
+        font-weight: bold;
+        cursor: pointer;
     }
     
     .menu-column span {
@@ -263,32 +313,27 @@
         color: #333;
         margin: 0px 0px 0px 10px;
     }
-    
-    .morenav {
-        position: absolute;
-        right: -12px;
-        top: 0;
-        width: 40px;
-        height: 34px;
-        text-align: center;
-        line-height: 34px;
-    }
     /*具体链接也统一设置*/
+    
+    .hotnews .titleblock div {
+        cursor: pointer;
+    }
     
     .detailedsite {
         overflow: hidden;
         margin-top: -5px;
         font-size: 14px;
     }
-    .detailedsite  .news-icon {
+    
+    .detailedsite .news-icon {
         display: inline-block;
-            height: 3px;
-    width: 3px;
-    background: #666;
-    text-align: center;
-    font-size: 0;
-    vertical-align: middle;
-    line-height: 34px;
+        height: 3px;
+        width: 3px;
+        background: #666;
+        text-align: center;
+        font-size: 0;
+        vertical-align: middle;
+        line-height: 34px;
     }
     
     .detailedsite li {
@@ -310,11 +355,13 @@
         width: 45%;
         color: black;
     }
-    .hotnews .detailedsite .news-list-wrapper a:hover{
+    
+    .hotnews .detailedsite .news-list-wrapper a:hover {
         color: #3e3ef3;
         text-decoration: underline;
     }
     /*在实时热点栏里多一个换一批的div*/
+    
     .changelogo {
         position: absolute;
         width: 20%;
@@ -328,9 +375,11 @@
         font-weight: bold;
         color: #333;
     }
+    
     .notice {
         text-align: center;
     }
+    
     .notice-icon {
         display: inline-block;
         height: 14px;
@@ -338,57 +387,63 @@
         margin: 0 6px 0 6px;
         background: url("img/news.png") no-repeat -45px 0px;
     }
-    .notice span{
-            display: inline-block;
-    zoom: 1;
-    vertical-align: middle;
+    
+    .notice span {
+        display: inline-block;
+        zoom: 1;
+        vertical-align: middle;
         font-size: 13px;
-    color: rgba(0, 0, 0, .4);
+        color: rgba(0, 0, 0, .4);
     }
+    
     .news-list-item .text-content {
         font-weight: bold;
-    vertical-align: top;
-    font-size: 20px;
-    margin-top: 30px;
+        vertical-align: top;
+        font-size: 20px;
+        margin-top: 30px;
     }
+    
     .news-list-item div {
         display: inline-block;
-
     }
+    
     .text-content a:hover {
-                color: #6464e6;
-    text-decoration: underline;
+        color: #6464e6;
+        text-decoration: underline;
     }
+    
     .news-list-item a {
-                color: black;
-    text-align: center;
-    letter-spacing: 3px;
-
+        color: black;
+        text-align: center;
+        letter-spacing: 3px;
     }
+    
     .news-list-wrapper a: hover {
-            color: #0079f4; 
-                text-decoration: underline;
-       
+        color: #0079f4;
+        text-decoration: underline;
     }
+    
     .source-content {
-            margin-top: -15px;
-    height: 15px;
-    width: 100%;
+        margin-top: -15px;
+        height: 15px;
+        width: 100%;
     }
+    
     .source-content span {
-         font-size: 12px;
-    color: #868282;
-
+        font-size: 12px;
+        color: #868282;
     }
+    
     .pic-content {
         margin-left: 45px;
     }
+    
     .footer {
         height: 100px;
         bottom: 10px;
         font-size: 10px;
     }
-
+    
     .announcement {
         float: left;
         margin-left: 40%;
@@ -397,15 +452,16 @@
         width: 590px;
         color: white;
     }
+    
     .announcement span {
         display: inline-block;
         float: left;
         color: white;
         margin-left: 10px;
     }
-    .footer .announcement p a{
+    
+    .footer .announcement p a {
         float: left;
         margin-left: 10px;
         text-decoration: underline;
     }
-

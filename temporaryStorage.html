@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Arthur Zhang">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <title>MIUI项目信息平台</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- DataTables Responsive CSS -->
+    <link href="/bower_components/datatables-responsive/css/responsive.dataTables.scss" rel="stylesheet">
+    <!-- Sb-Admin-2 CSS -->
+    <link href="/bower_components/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/bower_components/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="/bower_components/select2-bootstrap-theme/dist/select2-bootstrap.min.css" rel="stylesheet">
+    <link href="/bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet">
+    <link href="{{" /css/main.css "|autoversion}}" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+    <style>
+    #version-type,
+    .package-process,
+    .repackage,
+    .check {
+        display: inline-block;
+        margin-left: 45px;
+    }
+    
+    #version-type {
+        width: 60%;
+    }
+    
+    #version-check select {
+        width: 15%;
+    }
+    
+    .choose-all {
+        margin-left: 45px;
+    }
+    
+    .head-select button {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .head-select {
+        border-bottom: 0.5px #d6d6d6 solid;
+        padding: 0px;
+    }
+    
+    #addPackageTitle {
+        text-align: center;
+    }
+    
+    .select-version select {
+        width: 15%;
+        display: inline-block;
+        margin: 10px;
+    }
+    
+    .version-type .version {
+        margin-left: 33px;
+    }
+    
+    .version-num {
+        margin-left: 10px;
+    }
+    
+    .version-num input {
+        width: 32%;
+        height: 32px;
+        border-radius: 3px;
+        border: 1px solid #c3bebe;
+    }
+    
+    td .checkbox input {
+        height: 16px;
+        width: 16px;
+    }
+    
+    td .checkbox {
+        margin: 0 auto;
+        float: right;
+        height: 30px;
+        width: 22px;
+    }
+    
+    .check-colum {
+        margin-right: 5px;
+        width: 5%;
+    }
+    
+    .check-status {
+        width: 7%;
+    }
+    
+    .check-status div {
+        border: 1px solid black;
+        border-radius: 12px;
+    }
+    
+    .package-infom {
+        width: 48%;
+    }
+    
+    .package-status {
+        width: 8%;
+    }
+    
+    .package-status div {
+        border: 1px #9a9696 solid;
+        border-radius: 10px;
+        height: 30px;
+    }
+    .package-list {
+      overflow: auto;
+      height: 603px;
+      width: 1500px;
+    }
+    td div {
+        text-align: center;
+        height: 30px;
+        line-height: 30px;
+    }
+    
+    footer {
+        text-align: center;
+        margin-top: 16px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        {{include file='../common/header.tpl'}}
+        <!-- Page Content -->
+        <div id="page-wrapper" class="midash-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <form>
+                        <div class="head-select col-lg-12">
+                            <div id="version-type">
+                                <div id="version-check">
+                                    <div class="checkbox check">
+                                        <label>
+                                            <input type="checkbox"> 开发版
+                                        </label>
+                                    </div>
+                                    <div class="checkbox check">
+                                        <label>
+                                            <input type="checkbox"> 体验版
+                                        </label>
+                                    </div>
+                                    <div class="checkbox check">
+                                        <label>
+                                            <input type="checkbox"> 稳定版
+                                        </label>
+                                    </div>
+                                    <select class="form-control check">
+                                        <option value="">未知</option>
+                                    </select>
+                                    <select class="form-control check">
+                                        <option value="">版本号</option>
+                                    </select>
+                                    <select class="form-control check">
+                                        <option value="">设备</option>
+                                    </select>
+                                </div>
+                                <div class="choose-all">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> 全选
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-info btn-header package-process" data-toggle="modal" type="button" data-target="#add-package">发起新打包流程</button>
+                            <button class="btn btn-info btn-header repackage">重打包</button>
+                        </div>
+                        <div class="package-list col-lg-12">
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td class="check-colum">
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="" id="">
+                                            </div>
+                                        </td>
+                                        <td class="check-status">
+                                            <div>
+                                                <span>待审核</span>
+                                            </div>
+                                        </td>
+                                        <td class="package-infom">
+                                            <div>
+                                                <span>11111111111111</span>
+                                            </div>
+                                        </td>
+                                        <td class="package-status">
+                                            <div class="formal-package">
+                                                <span>开始打包</span>
+                                            </div>
+                                        </td>
+                                        <td class="package-status">
+                                            <div class="formal-package">
+                                                <span>正式包</span>
+                                            </div>
+                                        </td>
+                                        <td class="package-status">
+                                            <div class="root-package">
+                                                <span>root包</span>
+                                            </div>
+                                        </td>
+                                        <td class="package-status">
+                                            <div class="cts-package">
+                                                <span>CTS包</span>
+                                            </div>
+                                        </td>
+                                        <td class="package-status">
+                                            <div class="test-package">
+                                                <span>测试包</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div style="text-align: center">
+                                <span style="letter-spacing: 27px">
+                                  滚动查看更多
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- Modal -->
+    <div id="add-package" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addPackageTitle">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content col-md-6">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="addPackageTitle">打包</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <form>
+                                <div class="select-version">
+                                    <select class="form-control package-check">
+                                        <option>机型</option>
+                                    </select>
+                                    <select class="form-control package-check">
+                                        <option>版本</option>
+                                    </select>
+                                </div>
+                                <div class="version-num" hidden>
+                                    <input type="text" value="版本号">
+                                </div>
+                                <div class="version-type">
+                                    <div class="checkbox version">
+                                        <input type="checkbox">小数版本
+                                    </div>
+                                    <div class="checkbox version">
+                                        <input type="checkbox">不写权限
+                                    </div>
+                                    <div class="checkbox version">
+                                        <input type="checkbox">国际版
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn-finish">完成</button>
+                        <button type="button" class="btn btn-info btn-submit" data-dismiss="modal" style="display:none">确认</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#add-focus -->
+    <!-- Footer -->
+    {{include file='../common/footer.tpl'}}
+    <!-- jQuery -->
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/jquery-mousewheel/jquery.mousewheel.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <!-- DataTables JavaScript -->
+    <script src="/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <script src="/bower_components/datatables-responsive/js/dataTables.responsive.js"></script>
+    <script src="/bower_components/select2/dist/js/select2.full.min.js"></script>
+    <!-- Sb-Admin-2 JavaScript -->
+    <script src="/bower_components/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
+    <script src="/bower_components/masonry/dist/masonry.pkgd.min.js"></script>
+    <!-- Sweet Alert JavaScript -->
+    <script src="/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $(".version-type input").click(function() {
+            return true;
+        });
+        $(".btn-finish").click(function() {
+            $(".mobile-type select").attr('disabled', true);
+            $(".version-num").show();
+            $(".btn-submit").show();
+            $(".btn-finish").hide();
+            $(".version-type input").click(function() {
+                return false;
+            });
+        });
+        $(".package-list").mousewheel(function(event, delta) {
+            if (delta < 0) {
+                // $.ajax({
+                //   url:,
+                //   type:'',
+                //   dataType:'',
+                //   success:function(data){
+
+                //   }
+                // });
+                var newTr = '<tr><td class="check-colum"><div class="checkbox"><input type="checkbox" name="" id=""></div></td><td class="check-status"><div><span>待审核</span></div></td><td class="package-infom"><div><span>22222222222222</span></div></td><td class="package-status"><div class="formal-package"><span>开始打包</span></div></td><td class="package-status"><div class="formal-package"><span>正式包</span></div></td><td class="package-status"><div class="root-package"><span>root包</span></div></td><td class="package-status"><div class="cts-package"><span>CTS包</span></div></td><td class="package-status"><div class="test-package"><span>测试包</span></div></td></tr>';
+                $("tbody").append(newTr);
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>
