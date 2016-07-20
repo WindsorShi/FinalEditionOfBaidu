@@ -10,3 +10,22 @@ $(".setting").mouseenter(function(){
 $('.setting').mouseleave(function(){
 	$("#usersetting-menu").hide();
 });
+$("#header .head-inform .more").mouseenter(function(){
+	$(".right-more-column").show();
+});
+$("#header .head-inform .more").mouseleave(function(){
+	$(".right-more-column").hide();
+});
+$(".right-more-column").mouseenter(function(){
+	$(".right-more-column").show();
+});
+$(".right-more-column").mouseleave(function(){
+	$(".right-more-column").hide();
+});
+$(".change-cloth").click(function(){
+	console.log(1);
+	$(".cloth-column").show();
+});
+$(".cloth-column-closespan").click(function(){
+	$(".cloth-column").hide(1000);
+});

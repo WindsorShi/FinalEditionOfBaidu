@@ -15,17 +15,11 @@
     
     .wrapperskin {
         position: fixed;
-        top: 0;
-        left: 0;
-        background-repeat: no-repeat;
-        background: rgba(128, 128, 128, 0.15);
-        -webkit-background-size: 100% auto;
-        -moz-background-size: 100% auto;
-        -o-background-size: 100% auto;
-        background-size: 100% auto;
         width: 100%;
-        height: 100%;
         z-index: -1;
+    }
+    .wrapperskin img {
+        width: 100%;
     }
     
     .top-search-block {
@@ -36,15 +30,15 @@
     }
     
     #header {
-        padding-bottom: 10px;
+        background-image: linear-gradient(rgba(15,25,50,.3) 0,rgba(15,25,50,.3) 100%);
     }
     
     .weather {
-        top: 0;
-        left: 0;
-        padding: 0 6px;
-        height: 40px;
-        line-height: 40px;
+            top: 0;
+    left: 0;
+    padding: 0 20px;
+    height: 30px;
+    line-height: 30px;
     }
     /*  天气栏内部三个块元素*/
     
@@ -55,7 +49,12 @@
         margin-right: 6px;
     }
     /*天气logo*/
-    
+    .weather div {
+        font-size: 13px;
+    }
+    .weather div a {
+        text-decoration: underline;
+    }
     .weatherlogo {
         color: #b7babe;
         position: relative;
@@ -78,6 +77,101 @@
         color: #999;
     }
     
+    .cloth-column {
+        width: 100%;
+        height: 300px;
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        background: #fff;
+    }
+    .cloth-column div{
+        display: inline-block;
+    }
+    .cloth-column .cloth-column-head,.cloth-column-bg {
+        width: 50%;
+        margin: 0 auto;
+    }
+    .cloth-column .cloth-column-head a {
+        display: inline-block;
+        width: 55px;
+        height: 36px;
+        line-height: 36px;
+        padding: 2px;
+        font-size: 12px;
+        margin-right: 1px;
+    }
+    .cloth-column .cloth-column-closespan {
+        float: right;
+        color: #0079f5;
+    }
+    .cloth-column .cloth-column-closespan .up-icon{
+        margin-right: 2px;
+        background: url('img/skin-icon.png') no-repeat -44px -173px;
+        width: 11px;
+        height: 15px;
+        display: inline-block;
+    }
+    .cloth-column-bg {
+        width: 911px;
+        height: 205px;
+        margin: 25px 25%;
+    }
+    .cloth-column-bg .cloth-library {
+        width: 590px;
+        height: 190px;
+        float: left;
+    }
+    .cloth-column-bg .cloth-library img{
+        width: 97px;
+        height: 59px;
+        display: block;
+        float: left;
+        margin-right: 1px;
+        margin-bottom: 1px;
+    }
+    .cloth-column-bg .cloth-library .big {
+        width: 195px;
+        height: 119px;
+    }
+    .cloth-column-bg .cloth-library .last {
+        position: relative;
+        top: -60px;
+    }
+    .cloth-column-bg .cloth-preview{
+        float: right;
+        width: 294px;
+        position: relative;
+    }
+    .cloth-column-bg .cloth-preview .skin-content{
+            position: absolute;
+    top: 15px;
+    left: 32px;
+    width: 260px;
+    height: 163px;
+    overflow: hidden;
+    }
+    .cloth-column-bg .cloth-preview .preview-bg{
+        position: absolute;
+    top: 0;
+    right: 0;
+    width: 264px;
+    height: 180px;
+    background: url('img/skin-preview.png') no-repeat 0px 0px;
+    }
+    .cloth-column-bg .preview-title {
+            float: right;
+    margin-right: 0;
+    margin-top: 7px;
+    text-align: center;
+    width: 262px;
+    font-size: 12px;
+    color: #666;
+    }
+
+
+
+
     .head-inform .user-set {
         background: #fff;
         position: absolute;
@@ -118,11 +212,10 @@
     /*更多产品的属性*/
     
     .head-inform {
-        width: 650px;
-        padding-top: 20px;
-        font-size: 13px;
-        font-weight: bold;
-        float: right;
+            width: 650px;
+    font-size: 14px;
+    font-weight: bold;
+    float: right;
     }
     
     .more a {
@@ -224,7 +317,7 @@
     #information {
         position: relative;
         padding: 0 8px 10px;
-        background: #fff;
+        background: rgba(221, 222, 224, 0.87);
         z-index: 2;
         margin-top: 4%;
         width: 60%;
@@ -465,3 +558,42 @@
         margin-left: 10px;
         text-decoration: underline;
     }
+    .right-more-column {
+        position: absolute;
+        margin-left: 89%;
+        margin-top: -32px;
+    }
+    .more-column-head, .more-column-menu {
+        display: inline-block;
+        float: right;
+        width: 98px;
+        background: #fbfbfb;
+    }
+    .more-column-head {
+        line-height: 35px;
+        height: 35px;
+        font-size: 15px;
+        margin-left: 15px;
+        text-align: center;
+    }
+    .more-column-menu div {
+        display: inline-block;
+        float: right;
+        width: 95px;
+        font-size: 15px;
+        padding-bottom: 60px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .more-column-menu div a {
+        display: block;
+        width: 40px;
+        height: 25px;
+        margin: 0 auto;
+    }
+    .more-column-menu div a img {
+        margin-bottom: 6px;
+    }
+
+    
+
