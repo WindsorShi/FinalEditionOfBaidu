@@ -22,10 +22,22 @@ $(".right-more-column").mouseenter(function(){
 $(".right-more-column").mouseleave(function(){
 	$(".right-more-column").hide();
 });
-$(".change-cloth").click(function(){
-	console.log(1);
-	$(".cloth-column").show();
+$(".change-cloth a").click(function(){
+	$(".cloth-column").slideDown();
 });
 $(".cloth-column-closespan").click(function(){
-	$(".cloth-column").hide(1000);
+	$(".cloth-column").slideUp();
+});
+// $(document).click(function(e){
+// 	if (e.target != $(".cloth-column")[0]) {
+// 		$(".cloth-column").slideUp();
+// 	}
+// });
+$(".cloth-column-bg .cloth-library img").click(function(){
+	$imgSrc = $(this).attr("src");
+	$(".wrapperskin img").attr("src",$imgSrc);
+});
+$(".cloth-column-bg .cloth-library img").mouseover(function(){
+	$mouseoverSrc = $(this).attr("src");
+	$(".cloth-preview .skin-content img").attr("src",$mouseoverSrc);
 });

@@ -101,6 +101,9 @@
         font-size: 12px;
         margin-right: 1px;
     }
+    .cloth-column .cloth-column-head a:hover {
+        background: #71ddff;
+    }
     .cloth-column .cloth-column-closespan {
         float: right;
         color: #0079f5;
@@ -273,6 +276,7 @@
         border: 1px solid #888181;
         background: transparent;
         -webkit-box-flex: 1;
+        font-size: 15px;
         /*按钮定长，那么centerblock剩下的部分分为一等份给输入框*/
     }
     
