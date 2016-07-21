@@ -51,8 +51,8 @@ $(".cloth-column-bg .cloth-library img").mouseover(function(){
 	$mouseoverSrc = $(this).attr("src");
 	$(".cloth-preview .skin-content img").attr("src",$mouseoverSrc);
 });
-
-if (getCookie("the-cookie-img") == null) {
+var cookieImg = getCookie("the-cookie-img");
+if ( cookieImg == null) {
 	$(".wrapperskin img").attr("src","img/bg1.jpg");
 }else {
 	$(".wrapperskin img").attr("src",getCookie("the-cookie-img"));
@@ -60,27 +60,23 @@ if (getCookie("the-cookie-img") == null) {
 function setCookie(cookieName,cookieValue){
 	$(".cloth-preview .skin-content img").attr("src",cookieValue);
 	document.cookie = cookieName + "=" +cookieValue;
-	console.log(1);
-	console.log(cookieValue);
 }
 function getCookie(cookieName){
-	
-	var cookieValue = document.cookie;
-    	var cookieStartAt = cookieValue.indexOf(""+cookieName+"=");  
-        if(cookieStartAt==-1)  
-        {  
-            cookieValue = null;
-        }  
-        else  
-        {  
-            cookieStartAt = cookieValue.indexOf("=",cookieStartAt)+1;  
-            cookieEndAt = cookieValue.indexOf(";",cookieStartAt);  
-            if(cookieEndAt==-1)  
-            {  
-                cookieEndAt = cookieValue.length;  
-            }  
-           var cookieValueTry = unescape(cookieValue.substring(cookieStartAt,cookieEndAt));
-        }  
-        return cookieValueTry;  
+	var cookie = document.cookie;
+	var cookieStartAt = cookie.indexOf(""+cookieName +"=");
+	if (cookieStartAt == -1) {
+		return null;
+	}else{
+		var cookieValueStartAt = cookie.indexOf("=",cookieStartAt)+1;
+		var cookieValueEndAt = cookie.indexOf("=",cookieStartAt);
+		if (cookieValueEndAt ==-1) {
+			cookieValueEndAt = cookie.length;
+		}
+		var cookieValue = unescape(cookie.subString(cookieValueStartAt,cookieValueEndAt));
+	}
+	return cookieValue;
 }
+
+
+
 });
